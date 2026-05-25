@@ -1,0 +1,614 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --mainColor: #3b82f6;
+    --secundaryColor: #a5c3de;
+    --whiteColor: #ffffff;
+    --titleColor: #555555;
+    --labelColor: #333333;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    font-family: "Questrial", sans-serif;
+}
+
+body{
+    background: linear-gradient(to right, var(--mainColor), var(--secundaryColor));
+    font-weight: 400;
+    min-height: 100vh;
+    display: grid;
+}
+.inicio{
+    background-color: var(--whiteColor);
+    width: 90%;
+    max-width: 140rem;
+    margin: 1% auto 1% auto;
+    border-radius: 3.5rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .3);
+    padding: 1rem;
+}
+
+.encabezado{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.linea{
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to right,var(--mainColor) , var(--secundaryColor) );
+    border-image-slice: 1;
+    width: 90%;
+    margin: 0 auto 2rem auto;
+}
+.logo-header{
+    height: 10rem;
+    width: auto;
+    padding: 1rem; 
+    margin-left: 4rem;
+}
+.boton-logout{
+    margin-right: 3rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: 1rem;
+    background: linear-gradient(to right, var(--secundaryColor), var(--mainColor));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+.boton-logout:hover{
+    background: linear-gradient(to right, #FFEE8C, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.boton-logout i {
+    font-size: 4rem; 
+}
+.form-container {
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 35rem;
+    height: 50rem;
+    background-color: var(--whiteColor);
+    border-radius: .5rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+}
+.form-container img {
+    width: 20rem;
+    height: 18rem;
+    pointer-events: none;
+}
+.formulario input{
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+    border-radius: .5rem;
+    border: none;
+    outline: none;
+    border: .1rem solid var(--labelColor);
+    font-size: 1.6rem;
+    color: var(--labelColor);
+    background: transparent;
+}
+.formulario .campo {
+    position: relative;
+    width: 32rem;
+    margin: 3rem 0;
+}
+
+.formulario .campo i,
+.formulario .campo label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    color: var(--labelColor);
+    padding: 0 .5rem;
+    pointer-events: none;
+    transition: all .5s ease;
+}
+
+.formulario .campo i {
+    left: .5rem;
+}
+.formulario .campo label {
+    left: 2.5rem;
+}
+.formulario .campo input:focus~label,
+.formulario .campo input:valid~label,
+.formulario .campo input:focus~i,
+.formulario .campo input:valid~i
+{
+    top: 0 !important;
+    font-size: 1.2rem !important;
+    background-color: var(--whiteColor);
+}
+
+.boton-enviar{
+    background: linear-gradient(to right, var(--mainColor) , var(--secundaryColor));
+    color: var(--whiteColor);
+    text-transform: capitalize;
+    width: 100%;
+    height: 4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    box-shadow: 0 .2rem 1rem rgba(0, 0, 0, .4);
+}
+
+.boton-enviar:hover{
+    background: linear-gradient(to right, var(--mainColor) , var(--mainColor));
+    transition: all .3s ease;
+}
+
+.formulario i {
+    color: var(--mainColor);
+}
+
+.mensaje-error{
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: .4rem;
+}
+.campos {
+    margin: 0 1rem;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 2rem;
+}
+.formulario-marca{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulario-marca textarea{
+    width: 30rem;
+    height: 10rem;
+    resize: none;
+    padding: 1rem;
+    font-family: "Questrial", sans-serif;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+}
+.formulario-marca .exito {
+    font-size: 1.8rem;
+    width: 30rem;
+    background-color: var(--secundaryColor) ;
+    text-align: center;
+    padding: 1.4rem;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    color: var(--whiteColor);
+}
+.formulario-marca .error {
+    font-size: 1.8rem;
+    width: 30rem;
+    background-color: red;
+    text-align: center;
+    padding: 1.4rem;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    color: var(--whiteColor);
+}
+.campo-botones {
+    display: flex;
+    flex-direction: column;
+
+}
+.campo-botones button{
+    color: var(--whiteColor);
+    text-transform: capitalize;
+    width: 100%;
+    height: 4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin:.5rem 0;
+}
+.entrada{
+    background: #04AA6D;
+}
+.salida{
+    background: #f44336;
+}
+.pausa{
+    background: #007bff;
+}
+.regreso {
+    background:#ff9800;
+}
+.entrada:hover,
+.salida:hover,
+.pausa:hover,
+.regreso:hover{
+    box-shadow: 0 .2rem 1rem rgba(0, 0, 0, .4);
+}
+.contenedor-tabla{
+    padding: 10px;
+    margin-left: 4rem;
+    font-size: 13px;
+}
+
+.titulo-menu{
+    font-size: 3.5rem;
+    color: var(--mainColor);
+    margin-left: 7rem;
+    margin-bottom: 1rem;
+}
+.titulo-funcionario{
+    margin-top: 3rem;
+    margin-bottom: 3rem ;
+}
+.rdt_TableHeadRow {
+    font-size: 15px;
+    font-family: "Questrial", sans-serif;
+}
+
+.historial-menu {
+    width: 30rem;
+    background-color: var(--mainColor);
+    border-radius: .5rem;
+    font-size:1.5rem;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: var(--whiteColor);
+}
+
+.titulo-conexion {
+    color: red;
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+}
+.error-conexion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imagen-conexion {
+    width: 1000px;
+    height: 600px;
+    margin: 0 auto;
+}
+.no-data {
+    font-size: 2rem;
+    font-family: "Questrial", sans-serif;
+    font-weight: bold;
+    color: var(--whiteColor);
+    padding: .5rem;
+}
+.buscador {
+    height: 32px;
+	width: 200px;
+	border-radius: 3px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border: 1px solid black;
+	padding: 0 32px 0 16px;
+
+}
+
+.boton-limpiar{
+    border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+    border: 1px solid black;
+	height: 32px;
+	width: 32px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    background-color: var(--mainColor);
+    color: white;
+}
+.boton-limpiar:hover{
+    background-color: var(--secundaryColor);
+    color: var(--mainColor);
+}
+.campo-input{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contenedor-supervisor{
+    display: grid;
+    grid-template-columns: 3.8fr 1fr;
+    gap: 2rem;
+}
+.campo-botones-supervisor {
+    margin-top: 5rem;
+    margin-right: 4rem;
+}
+.tabla{
+    border-radius: 1rem 1rem 0 0;
+}
+.rdt_Pagination{
+    border-radius: 0 0 1rem 1rem;
+}
+
+footer p{
+    text-align: center;
+    margin: 1rem;
+    font-size: 1.2rem;
+}
+.boton-volver{
+    color: var(--whiteColor);
+    text-transform: capitalize;
+    width: 10rem;
+    height: 4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin:.5rem 0 0 6rem;
+    background-color: var(--mainColor);
+}
+.boton-volver:hover{
+    background-color: var(--secundaryColor);
+    color: var(--mainColor);
+}
+
+.contenedor-tabla-validar {
+    font-size: 13px;
+    margin: 0 6rem;
+}
+
+.boton-eliminar{
+    color: var(--whiteColor);
+    text-transform: capitalize;
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin:.5rem 0;
+    background-color: red;
+}
+.boton-eliminar:hover{
+    border: solid 2px black;
+    color: black;
+    font-weight: bold;
+}
+.boton-validar{
+    color: var(--whiteColor);
+    text-transform: capitalize;
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin:.5rem 0;
+    background-color: #007336;
+}
+.boton-validar:hover{
+    border: solid 2px black;
+    color: black;
+    font-weight: bold;
+}
+.respuesta{
+    display: flex;
+    justify-content: center;
+}
+.titulo-validar{
+    text-align: center;
+    font-size: 2rem;
+    font-family: "Questrial", sans-serif;
+    font-weight: bold;
+    color: var(--whiteColor);
+    padding: 1rem;
+    background-color: #04AA6D;
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+.titulo-error{
+    text-align: center;
+    font-size: 2rem;
+    font-family: "Questrial", sans-serif;
+    font-weight: bold;
+    color: var(--whiteColor);
+    padding: 1rem;
+    background-color: #f44336;
+    border-radius: 1rem;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.formulario-validar{
+    width: 50%;
+    max-width: 47rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2rem;
+    font-family: "Questrial", sans-serif;
+    border: 3px solid var(--secundaryColor);
+    border-radius: 2rem;
+    padding: 2rem;
+}
+.formulario-validar .campo {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+.formulario-validar .campo label{
+    text-align: right;
+    color: var(--mainColor);
+}
+.formulario-validar .campo input,
+.formulario-validar .campo textarea{
+    border: solid 2px var(--mainColor);
+    border-radius: .5rem;
+    padding: .5rem;
+}
+.formulario-validar .campo textarea{
+    height: 6rem;
+    resize: none;
+}
+.formulario-validar .campo input:disabled{
+    border: solid 1px var(--secundaryColor) !important;
+
+}
+.formulario-validar legend{
+    font-size: 3.5rem;
+    color: var(--mainColor);
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+.campo-boton{
+    display: flex;
+    justify-content: flex-end;
+}
+.boton-fijo{
+    width: 12rem;
+    margin-left: 2rem;
+}
+@media (max-width: 1250px) {
+  .contenedor-supervisor{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .contenedor-tabla{
+    margin: 0 auto;
+  }
+  .campo-botones-supervisor{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .contenedor-tabla{
+    width: 100%;
+  }
+  
+}
+@media (max-width: 1350px) {
+    .campos{
+        display: flex;
+        flex-direction: column;
+    }
+    .contenedor-tabla-validar{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .inicio{
+        margin: 0 auto;
+    }
+}
+@media (max-width: 1000px) {
+.formulario-validar{
+    width: auto;
+  }
+  .formulario-validar .campo{
+    display: flex;
+    flex-direction: column;
+  }
+  .formulario-validar .campo label{
+    text-align: left;
+}
+}
+.boton-crear{
+    color: var(--whiteColor);
+    text-transform: capitalize;
+    width: 100%;
+    height: 4rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    border-radius: .5rem 2rem .5rem .5rem;
+    cursor: pointer;
+    background-color:#04AA6D ;
+    padding: 1rem;
+}
+.boton-crear:hover{
+    background-color: var(--secundaryColor);
+    color: var(--mainColor);
+}
+.campo-input-crear{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0 ;
+}
+
+.validando, .validado, .no-validado{
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 4rem;
+}
+.validado{
+    color: #007bff;
+}
+.no-validado{
+    color: #f44336;
+}
+.derecha{
+    justify-content: flex-end !important;
+}
+.titulo-menu-secundario{
+    margin-top: 1.5rem;
+    
+}
+.boton-reporte{
+    max-width: 250px;
+}
+.campo-administrador{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto 0 auto;
+}
+.historial-asistencia{
+    width: 30rem;
+}
+@media (max-width: 1500px) {
+    .historial-asistencia{
+    width: auto;
+}
+}
+@media (max-width: 1350px) {
+    .historial-asistencia{
+    width: 30rem;
+}
+}
+.boton-exportar{
+    width: 14rem;
+    background: #f44336;
+}

@@ -1,0 +1,22 @@
+{
+    "name": "us/api",
+    "description": "Api Rest de Unlimited Software",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Api\\": "./",
+            "Models\\" : "./models",
+            "Controllers\\" : "./controllers",
+            "Classes\\" : "./classes"
+        }
+    },
+    "authors": [
+        {
+            "name": "Braian Gonzalez"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.11",
+        "phpmailer/phpmailer": "^7.0"
+    }
+}
